@@ -16,29 +16,16 @@ function App() {
 
         // test.scene.add(boxMesh);
 
-        //ground
+        // spotlight
+        const spotLight = new THREE.SpotLight(0xffffff, 3000, 100, 0.22, 1);
+        spotLight.position.set(0, 25, 0);
+        spotLight.castShadow = true;
+        spotLight.shadow.bias = -0.0001;
+        test.scene.add(spotLight);
 
-        // const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
-        // groundGeometry.rotateX(-Math.PI / 2);
-        // const groundMaterial = new THREE.MeshStandardMaterial({
-        //     color: 0x555555,
-        //     side: THREE.DoubleSide,
-        // });
-        // const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
-        // groundMesh.castShadow = false;
-        // groundMesh.receiveShadow = true;
-
-        // test.scene.add(groundMesh);
-        // const spotLight = new THREE.SpotLight(0xffffff, 3000, 100, 0.22, 1);
-        // spotLight.position.set(0, 25, 0);
-        // spotLight.castShadow = true;
-        // spotLight.shadow.bias = -0.0001;
-        // test.scene.add(spotLight);
-
-        // miku
-
+        // elaina
         const loader = new GLTFLoader();
-        loader.load('/miku/scene.gltf', (gltf) => {
+        loader.load('/elaina/scene.gltf', (gltf) => {
                 const mesh = gltf.scene;
                 test.scene.add(mesh);
              },
@@ -54,11 +41,11 @@ function App() {
     return (
         <div>
             <canvas id="myThreeJsCanvas" />
-            {/* <div className="magic">
+            <div className="magic">
               <div className="playground">
                 
               </div>
-            </div> */}
+            </div>
         </div>
     );
 }
