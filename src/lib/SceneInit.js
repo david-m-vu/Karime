@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import Stats from 'three/examples/jsm/libs/stats.module';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import Stats from 'three/examples/jsm/libs/stats.module';
 
 export default class SceneInit {
   constructor(canvasId) {
@@ -48,8 +48,8 @@ export default class SceneInit {
 
     this.clock = new THREE.Clock();
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.stats = Stats();
-    document.body.appendChild(this.stats.dom);
+    // this.stats = Stats();
+    // document.body.appendChild(this.stats.dom);
 
     // ambient light which is for the whole scene
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -82,7 +82,7 @@ export default class SceneInit {
     // requestAnimationFrame(this.animate.bind(this));
     window.requestAnimationFrame(this.animate.bind(this));
     this.render();
-    this.stats.update();
+    // this.stats.update();
     this.controls.update();
   }
 
