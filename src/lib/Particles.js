@@ -279,7 +279,7 @@ class CreateParticles {
 
                 let dx = mx - px;
                 let dy = my - py;
-                const dz = mz - pz;
+                // const dz = mz - pz;
 
                 const mouseDistance = this.distance(mx, my, px, py);
                 let d = (dx = mx - px) * dx + (dy = my - py) * dy;

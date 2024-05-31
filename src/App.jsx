@@ -1,9 +1,12 @@
 import { useEffect } from "react";
-import * as THREE from "three";
-import SceneInit from "./lib/SceneInit";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import ParticlesCanvas from "./canvas/ParticlesCanvas.jsx"
+// import * as THREE from "three";
+// import SceneInit from "./lib/SceneInit";
+// import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { Routes, Route, Navigate } from "react-router-dom";
 
+import Landing from "./scenes/Landing/Landing.jsx";
+import Play from "./scenes/Play/Play.jsx";
+// import Browse from "./scenes/Browse/Browse.jsx";
 import "./App.css";
 
 function App() {
@@ -43,7 +46,10 @@ function App() {
 
     return (
         <div>
-            <ParticlesCanvas/>
+            <Routes>    
+                <Route path="/" element={<Landing/>}/>
+                <Route path="/Play" element={<Play/>}/>
+            </Routes>
         </div>
     );
 }

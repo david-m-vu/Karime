@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "../lib/Particles.js";
+import "./ParticlesCanvas.css";
 
 const ParticlesCanvas = () => {
     const magicRef = useRef(null);
