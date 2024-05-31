@@ -3,10 +3,15 @@ import { useEffect } from "react";
 // import SceneInit from "./lib/SceneInit";
 // import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { Canvas, useFrame } from '@react-three/fiber'
+import "./lib/Particles.js";
+
 
 import Landing from "./scenes/Landing/Landing.jsx";
 import Play from "./scenes/Play/Play.jsx";
-// import Browse from "./scenes/Browse/Browse.jsx";
+import Browse from "./scenes/Browse/Browse.jsx";
+import My_Album from "./scenes/My_Album/My_Album.jsx";
+import ParticlesCanvas from "./canvas/ParticlesCanvas.jsx"
 import "./App.css";
 
 function App() {
@@ -45,10 +50,12 @@ function App() {
     }, []);
 
     return (
-        <div>
-            <Routes>    
-                <Route path="/" element={<Landing/>}/>
-                <Route path="/Play" element={<Play/>}/>
+        <div className="w-full h-full">
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/play" element={<Play />} />
+                <Route path="/my_album" element={<My_Album />} />
+                <Route path="/browse" element={<Browse />} />
             </Routes>
         </div>
     );

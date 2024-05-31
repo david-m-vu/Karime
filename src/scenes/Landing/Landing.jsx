@@ -5,7 +5,7 @@ import Button from "../../components/Button/Button.jsx";
 
 const Landing = () => {
     return (
-        <div>
+        <div id="Landing" className="w-full h-full relative">
             <NavBar />
             <ParticlesCanvas />
             <Button />

@@ -133,7 +133,7 @@ button.active {
     z-index: 2;
 }
 
-button .text {
+.land .text {
     color: transparent;
     background-clip: text;
     background-color: black;

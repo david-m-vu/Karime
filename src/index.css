@@ -8,9 +8,12 @@
   font-family: Bayon, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   text-align: center;
+  height: 100%;
+  width: 100%;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
+  background-color: #150F13;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,9 +24,14 @@
 html, body { 
   margin: 0;
   height: 100%;
+  width: 100%;
   overflow: hidden;
   font-family: 'Roboto' !important; 
   color: white;
+}
+
+#root {
+  height: 100vh;
 }
 
 /* button {

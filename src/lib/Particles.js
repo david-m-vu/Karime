@@ -26,7 +26,7 @@ void main() {
 }
 `;
 
-const preload = () => {
+export const preload = () => {
     let manager = new THREE.LoadingManager();
     manager.onLoad = function () {
         const environment = new Environment(typo, particle);
