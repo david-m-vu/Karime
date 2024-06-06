@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import ticket from "../../assets/ticket.png";
+import ticket from "../../assets/ticket.svg";
 import plus from "../../assets/plus.png";
 import { NavLink } from "react-router-dom";
 const NavBar = (props) => {
@@ -33,8 +33,8 @@ const NavBar = (props) => {
             <div id="userInfo" className="flex-1 justify-end items-center">
                 <div className="float-right flex-row flex justify-end w-full">
                     <div id="ticketCount" className="relative flex flex-row items-center">
-                        <input readOnly={true} value={12345} className="bg-ticketBackground w-full pl-16 rounded-3xl outline-none border-2 border-white"/>
-                        <img src={ticket} className="absolute z-10 top-0 p-2 left-2"></img>
+                        <input readOnly={true} value={12345} className="bg-transparent w-full pl-16 rounded-3xl outline-none border-2 border-white"/>
+                            <img id="ticketIcon" src={ticket} className="absolute z-10 top-0 p-2 pt-[0.9rem] left-2"></img>
                         <img src={plus} className="absolute z-10 top-0 p-4 right-2 hover:scale-110 " /> 
                     </div>
                     <img id="user" className="bg-[#676767] mx-3 w-14 h-14 rounded-full">
