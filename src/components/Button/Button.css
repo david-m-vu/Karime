@@ -48,7 +48,7 @@
     }    
 }
 
- button {
+.landButton {
     color: var(--bg);
     font-weight: 600;
     /*     background-image: linear-gradient(90deg, #fcecfe, #fbf6e7, #e6fcf5); */
@@ -68,13 +68,13 @@
     transition: all var(--spring-duration) var(--spring-easing);
 }
 
- button:hover:not(:active),
-button.active {
+.landButton:hover:not(:active),
+.landButton.active {
     transition-duration: calc(var(--spring-duration)*0.5);
     scale: 1.2;
     box-shadow: 0 4px 8px -2px hsl(var(--glow-hue) 50% 20% / 50%), inset 0 0 0 transparent;
 }
- button:active {
+.landButton:active {
     scale: 1.1;
     transition-duration: calc(var(--spring-duration)*0.5);
 }
@@ -100,10 +100,10 @@ button.active {
     mix-blend-mode: plus-lighter;
     animation: shimmer 1s linear infinite both;
 }
- button:hover .shimmer::before,
- button:hover .shimmer::after,
- button.active .shimmer::before,
- button.active .shimmer::after {
+.landButton:hover .shimmer::before,
+.landButton:hover .shimmer::after,
+.landButton.active .shimmer::before,
+.landButton.active .shimmer::after {
     opacity: 1;
     animation: shine 1.2s ease-in 1 forwards infinite;
 }
@@ -145,8 +145,8 @@ button.active {
     font-size: 20px;
 }
 
- button:hover .text,
- button.active .text {
+.landButton:hover .text,
+.landButton.active .text {
     animation: text .66s ease-in 1 both;
 }
 

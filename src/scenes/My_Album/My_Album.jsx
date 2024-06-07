@@ -1,12 +1,13 @@
-import NavBar from "../../components/Navbar/Navbar.jsx"
-
+import { motion } from "framer-motion";
 
 const My_Album = () => {
     return (
-        <div>
-            <NavBar currentScreen="my_album"/>
-            Content For My Album
-        </div>
+        <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+        >
+        </motion.div>
     )
 }
 

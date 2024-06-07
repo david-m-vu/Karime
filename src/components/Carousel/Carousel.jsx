@@ -1,43 +1,124 @@
 import './Carousel.css';
-'use strict';
-import "../../lib/Slider.js";
-'use strict';
+import { useState, useEffect } from "react";
 import Karina from "../../assets/karina_banner.png";
-import New_Jeans from "../../assets/newjeans_banner.png";
+import NewJeans from "../../assets/newjeans_banner.png";
 import Aespa from "../../assets/aespa_banner.png";
 
+import LeftButton from "../../assets/chevron-left.svg";
+import RightButton from "../../assets/chevron-right.svg";
+import blackTicket from "../../assets/ticket-black.svg";
+
+
+const testBanners = [
+  {
+    id: 0,
+    img: Karina,
+    name: "Karina Banner"
+  },
+  {
+    id: 1,
+    img: NewJeans,
+    name: "NewJeans Banner"
+  },
+  {
+    id: 2,
+    img: Aespa,
+    name: "Aespa Banner"
+  }
+];
+
 const Carousel = () => {
-    return (
-        <div className="w-full h-full">
-        <div className="carousel">
-  <div className="carousel__item carousel__item--left">
-    <img src={Karina} alt="dog"/>
-    <div className="carousel__text">
-      <h3>Aespa</h3>
-      <p>Select Banner</p>
+  const [banners, setBanners] = useState([]);
+  const [currentBannerIndex, setCurrentBannerIndex] = useState(-1)
+  const [currentBanner, setCurrentBanner] = useState(null)
+  const [xPos, setXPos] = useState(0);
+  const [indexOffset, setIndexOffset] = useState(0);
+
+  useEffect(() => {
+    const bannersRes = testBanners;
+    const numBanners = bannersRes.length;
+    const middleBannerIndex = Math.floor(numBanners / 2);
+
+    setBanners(bannersRes);
+    setCurrentBannerIndex(middleBannerIndex);
+    setIndexOffset(-middleBannerIndex);
+    setCurrentBanner(bannersRes[middleBannerIndex]);
+  }, [])
+
+  useEffect(() => {
+    setCurrentBanner(banners[currentBannerIndex])
+    setXPos((currentBannerIndex + indexOffset) * -70)
+  }, [currentBannerIndex])
+
+  const calculateNewIndex = (increment, index) => {
+    let newIndex = (index + increment) % banners.length;
+
+    // if newIndex is less than lowest index
+    if (newIndex < 0) {
+      return newIndex += banners.length;
+    } else if (newIndex > banners.length - 1) {
+      return 0;
+    } else {
+      return newIndex;
+    }
+  }
+
+  const changeBanner = (direction) => {
+    if (direction === "left") {
+      setCurrentBannerIndex((prev) => calculateNewIndex(-1, prev))
+    } else if (direction === "right") {
+      setCurrentBannerIndex((prev) => calculateNewIndex(1, prev))
+    }
+  }
+
+  const getBannerClass = (index) => {
+    if (index === currentBannerIndex) {
+      return "middleBanner";
+    } else if (index === currentBannerIndex - 1){
+      return "leftBanner";
+    } else if (index === currentBannerIndex + 1) {
+      return "rightBanner"
+    } else {
+      return "";
+    }
+  }
+
+  const onClickBanner = (index) => {
+    if (index === currentBannerIndex - 1){
+      changeBanner("left")
+    } else if (index === currentBannerIndex + 1) {
+      changeBanner("right")
+    } 
+  }
+
+  // const printStuff = () => {
+  //   console.log(indexOffset, xPos, currentBannerIndex, currentBanner);
+  // }
+
+  return (
+    <div id="carousel" className="w-full h-full">
+      <div id="banners" className="flex flex-row justify-center w-full gap-x-20" style={{ transition: "ease 0.3s", transform: `translateX(${xPos}%) translate(-50%, -50%)` }}>
+        {banners.map((banner, index) => {
+          return (
+            <img key={index} onClick={() => onClickBanner(index)} className={`${getBannerClass(index)} banner w-[70%]`} src={banner.img} />
+          )
+        })}
+
+      </div>
+      <div id="carouselButtons" className="flex flex-row gap-x-20">
+        <button onClick={() => changeBanner("left")}><img src={LeftButton} /></button>
+        <button onClick={() => changeBanner("right")}><img src={RightButton} /></button>
+      </div>
+
+        
+        <div className=" play">
+          <button id="playButton" className="bg-[#E5CED1] gap-3 border-black border-[2px] w-72 rounded-[25px] flex flex-row p-2 justify-center items-center" >
+            <span className="normalText">1x</span><img className="left-2" src={blackTicket} />
+          </button>
+          </div>
+      {/* <div onClick={() => (printStuff())} className="please z-30"> asdasd</div> */}
     </div>
-  </div>
-  <div className="carousel__item carousel__item--main">
-    <img src={New_Jeans} alt="dog"/>
-    <div className="carousel__text">
-      <h3>New Jeans</h3>
-      <p>Select Banner</p>
-    </div>
-  </div>
-  <div className="carousel__item carousel__item--right">
-    <img src={Aespa} alt="dog"/>
-    <div className="carousel__text">
-      <h3>Karina</h3>
-      <p>Select Banner</p>
-    </div>
-  </div>
-  </div>
-  <div className="carousel__btns">
-    <button className="carousel__btn" id="leftBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="m15 4l2 2l-6 6l6 6l-2 2l-8-8z"/></svg></button>
-    <button className="carousel__btn" id="rightBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="m9.005 4l8 8l-8 8L7 18l6.005-6L7 6z"/></svg></button>
-  </div>
-  </div>
-    )
+  )
 }
 
 export default Carousel;

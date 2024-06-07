@@ -58,6 +58,7 @@ class Environment {
         this.particle = particle;
         this.container = document.querySelector("#magic");
         this.scene = new THREE.Scene();
+        // this.scene.background = new THREE.Color( 0xff0000 );
         this.createCamera();
         this.createRenderer();
         this.setup();
@@ -94,7 +95,7 @@ class Environment {
     }
 
     createRenderer() {
-        this.renderer = new THREE.WebGLRenderer();
+        this.renderer = new THREE.WebGLRenderer({ alpha: true });
         this.renderer.setSize(
             this.container.clientWidth,
             this.container.clientHeight

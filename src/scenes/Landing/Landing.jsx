@@ -1,15 +1,19 @@
 import "./Landing.css";
 import ParticlesCanvas from "../../canvas/ParticlesCanvas";
-import NavBar from "../../components/Navbar/Navbar.jsx";
 import Button from "../../components/Button/Button.jsx";
+import { motion } from "framer-motion";
 
 const Landing = () => {
     return (
-        <div id="Landing" className="w-full h-full relative">
-            <NavBar />
+        <motion.div id="Landing" className="w-full h-full relative"
+        initial={{}}
+        animate={{height: "100%"}}
+        exit={{y: -window.innerHeight, transition: {duration: 0.2}}}
+        >
+    
             <ParticlesCanvas />
             <Button />
-        </div>
+        </motion.div>
     )
 }
 

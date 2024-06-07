@@ -1,12 +1,13 @@
-import NavBar from "../../components/Navbar/Navbar.jsx"
-
+import { motion } from "framer-motion";
 
 const Browse = () => {
     return (
-        <div id="Browse">
-            <NavBar currentScreen="browse"/>
-            Content For Browse
-        </div>
+        <motion.div id="Browse"
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+        >
+        </motion.div>
     )
 }
 

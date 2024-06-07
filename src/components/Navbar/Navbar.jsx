@@ -2,7 +2,7 @@ import "./Navbar.css";
 import ticket from "../../assets/ticket.svg";
 import plus from "../../assets/plus.png";
 import { NavLink } from "react-router-dom";
-const NavBar = (props) => {
+const NavBar = () => {
     const getIsHighlighted = (path) => {
         if (path === window.location.pathname) {
             return "text-white"
@@ -12,7 +12,7 @@ const NavBar = (props) => {
     }
     
     return (
-        <div id="navbar" className="flex absolute flex-row w-full justify-between items-center px-10 py-12 text-[2rem] gap-x-8">
+        <div id="navbar" className="flex absolute flex-row w-full justify-between items-center px-10 py-12 text-[2rem] gap-x-8 z-20">
             <div className="flex-1"><a className="hover:cursor-pointer inline-block float-left" href='/'>KARIME</a></div>
             <div className="flex-1 flex flex-row justify-center gap-x-8">
                 <div className="relative group">

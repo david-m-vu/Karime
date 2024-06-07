@@ -4,7 +4,7 @@ function Button() {
     return (
         <main id="shimmy" className="land">
             <Link to="/play">
-            <button className="land">
+            <button className="landButton">
                 <span className="text">ENTER THE KARIMEVERSE</span>
                 <span className="shimmer"/>
             </button>

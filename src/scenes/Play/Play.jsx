@@ -1,14 +1,16 @@
-import NavBar from "../../components/Navbar/Navbar.jsx"
 import Carousel from "../../components/Carousel/Carousel.jsx"
+import { motion } from "framer-motion";
 
 const Play = () => {
     return (
 
-        <div className="w-full h-full">
-            <NavBar currentScreen="play"/>
+        <motion.div className="w-full h-full"
+            initial={{y: window.innerHeight}}
+            animate={{y: 0, transition: {delay: 0.2}}}
+            exit={{}}
+        >
             <Carousel/>
-            Content For Play
-        </div>
+        </motion.div>
     )
 }
 
