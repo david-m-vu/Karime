@@ -24,7 +24,7 @@ const testBanners = [
     id: 2,
     img: Aespa,
     name: "Aespa Banner"
-  }
+  },
 ];
 
 const Carousel = () => {
@@ -32,7 +32,9 @@ const Carousel = () => {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(-1)
   const [currentBanner, setCurrentBanner] = useState(null)
   const [xPos, setXPos] = useState(0);
+  const [xPosGap, setXPosGap] = useState(0);
   const [indexOffset, setIndexOffset] = useState(0);
+  const [isEven, setIsEven] = useState(false)
 
   useEffect(() => {
     const bannersRes = testBanners;
@@ -43,11 +45,17 @@ const Carousel = () => {
     setCurrentBannerIndex(middleBannerIndex);
     setIndexOffset(-middleBannerIndex);
     setCurrentBanner(bannersRes[middleBannerIndex]);
+    if (numBanners % 2 === 0) {
+      setIsEven(true);
+    }
   }, [])
 
   useEffect(() => {
+    const evenOffset = isEven ? 1 : 0;
+  
     setCurrentBanner(banners[currentBannerIndex])
-    setXPos((currentBannerIndex + indexOffset) * -70)
+    setXPos((currentBannerIndex + indexOffset + (evenOffset / 2)) * -70)
+    setXPosGap((currentBannerIndex + indexOffset + (evenOffset / 2)) * 8)
   }, [currentBannerIndex])
 
   const calculateNewIndex = (increment, index) => {
@@ -97,7 +105,7 @@ const Carousel = () => {
 
   return (
     <div id="carousel" className="w-full h-full">
-      <div id="banners" className="flex flex-row justify-center w-full gap-x-20" style={{ transition: "ease 0.3s", transform: `translateX(${xPos}%) translate(-50%, -50%)` }}>
+      <div id="banners" className="flex flex-row justify-center w-full gap-x-32" style={{ transition: "ease 0.3s", transform: `translateX(calc(${xPos}% - ${xPosGap}rem)) translate(-50%, -50%)` }}>
         {banners.map((banner, index) => {
           return (
             <img key={index} onClick={() => onClickBanner(index)} className={`${getBannerClass(index)} banner w-[70%]`} src={banner.img} />
