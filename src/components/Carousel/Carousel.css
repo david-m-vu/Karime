@@ -14,8 +14,9 @@
 }
 
 .middleBanner {
-    box-shadow: 0px 0px 5rem 0 #a532c8;
+    /* box-shadow: 0px 0px 5rem 0 #a532c8; */
     transform: scale(1.02);
+    animation: pulsate 3s infinite ease-out;
 }
 
 .leftBanner:hover, .rightBanner:hover {
@@ -68,8 +69,18 @@
     box-shadow: 0px 0px 1.25rem 0px #ffe7ea;
 }
 
+@keyframes pulsate {
+    from {
+        box-shadow: 0px 0px 1rem 0 #a532c8;
+    }
+    50% {
+        box-shadow: 0px 0px 5rem 0 #a532c8;
+    }
+    to {
+        box-shadow: 0px 0px 1rem 0 #a532c8;
 
-
+    }
+}
 
 .please {
     position: absolute;
