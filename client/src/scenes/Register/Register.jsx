@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "../../state/"
 import { useNavigate } from "react-router-dom"
 
+import IU from "../../assets/iu.png"
+
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -161,7 +163,6 @@ const Register = () => {
                     />
                 </div>
 
-
                 <div className={`${getInputClassName(emailFocus)} flex flex-row`}>
                     <label htmlFor="email">Email:</label>
                     <input className="formInput bg-transparent grow" type="text" id="email" name="email"
@@ -204,6 +205,7 @@ const Register = () => {
                     />
                 </div>
                 <button className="mainButton bg-gradient-to-r from-[#ffc4ec] to-[#9e5bff] mt-11 gap-3 border-black border-[2px] w-72 rounded-[25px] flex flex-row p-2 justify-center items-center" type="submit" disabled={(!validUsername || !validPassword || !validMatch || !validEmail)}>NEXT</button>
+                <img src={IU} className="absolute right-[-10rem] bottom-0"></img>
             </form>
         </div>
     )
