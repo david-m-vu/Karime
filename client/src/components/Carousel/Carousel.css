@@ -47,28 +47,6 @@
     transform: translate(-50%, 0);
 }
 
-#playButton {
-    color: black;
-    font-family: Bayon;
-    font-size: 2rem;
-    box-shadow: 0px 0px 0.75rem 0px #E5CED1;
-
-    -webkit-text-fill-color: black; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #C88E8E;
-    -webkit-user-select: none; /* Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-}
-
-#playButton:hover {
-    background-color: #f5e1e4;
-    transition: 0.075s;
-    transform: scale(1.1);
-    box-shadow: 0px 0px 1.25rem 0px #ffe7ea;
-}
-
 @keyframes pulsate {
     from {
         box-shadow: 0px 0px 1rem 0 #a532c8;

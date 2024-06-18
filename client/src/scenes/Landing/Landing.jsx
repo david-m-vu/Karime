@@ -10,7 +10,6 @@ const Landing = () => {
         animate={{height: "100%"}}
         exit={{y: -window.innerHeight, transition: {duration: 0.2}}}
         >
-    
             <ParticlesCanvas />
             <Button />
         </motion.div>

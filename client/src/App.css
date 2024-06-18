@@ -2,3 +2,24 @@
     font-family: Roboto;
     font-weight: 600;
 }
+
+.mainButton {
+    color: white;
+    font-family: Bayon;
+    font-size: 2rem;
+    box-shadow: 0px 0px 0.2rem 0px #E5CED1;
+    -webkit-text-fill-color: black;
+    /* -webkit-text-stroke-width: 1px; */
+    /* -webkit-text-stroke-color: #C88E8E; */
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.mainButton:hover {
+    transition: 0.075s;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 0.75rem 0px #ffe7ea;
+    cursor: pointer;
+}

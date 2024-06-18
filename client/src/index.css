@@ -8,7 +8,7 @@
 :root {
   font-family: Bayon, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  text-align: center;
+  /* text-align: center; */
   height: 100%;
   width: 100%;
 
@@ -33,6 +33,13 @@ html, body {
 
 #root {
   height: 100vh;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #150F13 inset !important;
 }
 
 /* button {

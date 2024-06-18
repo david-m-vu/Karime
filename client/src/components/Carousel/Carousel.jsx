@@ -120,7 +120,7 @@ const Carousel = () => {
 
         
         <div className=" play">
-          <button id="playButton" className="bg-[#E5CED1] gap-3 border-black border-[2px] w-72 rounded-[25px] flex flex-row p-2 justify-center items-center" >
+          <button id="playButton" className="mainButton bg-gradient-to-r from-[#ffc4ec] to-[#9e5bff] gap-3 border-black border-[2px] w-72 rounded-[25px] flex flex-row p-2 justify-center items-center" >
             <span className="normalText">1x</span><img className="left-2" src={blackTicket} />
           </button>
           </div>

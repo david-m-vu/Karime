@@ -1,0 +1,32 @@
+#Register {
+
+}
+
+.registerTitle {
+    font-family: Bayon;
+    font-size: 3rem;
+}
+
+.registerForm {
+    font-family: Bayon;
+    font-size: 2rem;
+}
+
+.offscreen {
+    display: none;
+}
+
+.formInstructions {
+    font-family: Roboto;
+    position: absolute;
+    top: 10%;
+    color: rgb(194, 22, 22);
+    font-size: 1.1rem;
+
+}
+
+.formInput {
+    outline: none;
+    padding-left: 1rem;
+    transition: width 1s ease;
+}
