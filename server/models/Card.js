@@ -9,9 +9,12 @@ const CardSchema = new mongoose.Schema(
         banner: {
             type: String,
         },
+        idolName: {
+            type: String,
+            default: ""
+        },
         group: {
             type: String,
-            required: true,
         },
         isHolo: {
             type: Boolean,
@@ -19,7 +22,13 @@ const CardSchema = new mongoose.Schema(
         },
         imagePath: {
             type: String,
-            default: ""
+            default: "",
+            required: true
+        },
+        imageName: {
+            type: String, 
+            default: "",
+            required: true,
         },
     },
     { timestamps: true }

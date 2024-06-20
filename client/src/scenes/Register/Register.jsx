@@ -118,7 +118,15 @@ const Register = () => {
         if (isFocused) {
             return "border-b-[6px] border-[#721aed] w-[40vw] transition-all ease-out duration-300 box-border scale-110"
         } else {
-            return "border-b-[6px] border-[#3727a1] w-1/3 opacity-50 box-border"
+            return "border-b-[6px] border-[#3727a1] w-1/3 opacity-50 box-border duration-[220ms]"
+        }
+    }
+
+    const getHrClassName = () => {
+        if (usernameFocus || passwordFocus || matchFocus || emailFocus) {
+            return "transition-all ease-out w-[12.9vw] h-[3px] bg-[#ffc4ec] duration-300";
+        } else {
+            return "transition-all ease-in w-[2vw] h-[3px] bg-[#efdbfd] duration-[220ms]";
         }
     }
 
@@ -126,7 +134,7 @@ const Register = () => {
     return (
         <div id="Register" className="z-50 flex w-full h-full justify-center items-center flex-col">
             <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <div className="registerTitle mb-6">REGISTER</div>
+            <div className="registerTitle mb-6 flex flex-row justify-center items-center gap-4"><div className={`${getHrClassName()}`}></div>REGISTER<div className={`${getHrClassName()}`}></div></div>
             {/* ERROR MESSAGES */}
             <p id="uidnote" className={(usernameFocus && username && !validUsername) ? "formInstructions" : "offscreen"}>
                 4 to 24 characters.<br />
@@ -205,7 +213,7 @@ const Register = () => {
                     />
                 </div>
                 <button className="mainButton bg-gradient-to-r from-[#ffc4ec] to-[#9e5bff] mt-11 gap-3 border-black border-[2px] w-72 rounded-[25px] flex flex-row p-2 justify-center items-center" type="submit" disabled={(!validUsername || !validPassword || !validMatch || !validEmail)}>NEXT</button>
-                <img src={IU} className="absolute right-[-10rem] bottom-0"></img>
+                <img src={IU} className="absolute right-[-5vw] bottom-0 w-1/3"></img>
             </form>
         </div>
     )

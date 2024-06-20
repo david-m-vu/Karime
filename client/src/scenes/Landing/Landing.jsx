@@ -1,6 +1,6 @@
 import "./Landing.css";
 import ParticlesCanvas from "../../canvas/ParticlesCanvas";
-import Button from "../../components/Button/Button.jsx";
+import Button from "../../components/ShineButton/ShineButton.jsx";
 import { motion } from "framer-motion";
 
 const Landing = () => {
